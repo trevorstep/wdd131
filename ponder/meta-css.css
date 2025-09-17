@@ -17,11 +17,13 @@ img {
     margin: 0 auto;
 }
 
-h1{
+h1 {
     letter-spacing: 4px;
 }
 
-h1, h2, p {
+h1,
+h2,
+p {
     text-align: center;
 }
 
@@ -35,9 +37,9 @@ h1, h2, p {
 }
 
 hr {
-    height:3px;
+    height: 3px;
     background-color: #035f9c;
     width: 80%;
-    margin:30px auto;
+    margin: 30px auto;
 
 }
