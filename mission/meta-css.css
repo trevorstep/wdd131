@@ -3,7 +3,7 @@ body {
 }
 
 #content {
-    max-width: 60%;
+    max-width: 40%;
     margin: 0 auto;
     border: 1px solid black;
     padding: 40px;
@@ -23,17 +23,30 @@ p {
 }
 
 p {
-  text-align: center;
-  width: 80%;
+    text-align: center;
+    margin: auto;
+    width: 80%;
+}
+
+i {
+    font-size: 15px;
 }
 
 h1 {
     font-size: 50px;
     letter-spacing: 4px;
+    margin: auto;
+    text-align: center;
 }
 
-ol{
-        font-size: 15px;
+ol {
+    margin: auto;
+    width: 80%;
+    font-size: 15px;
+}
+li{
+    text-align: center;
+
 }
 
 h2 {
@@ -57,3 +70,8 @@ hr {
     margin: 30px auto;
 
 }
+
+    .list-container {
+        width: 80%;
+        margin: auto;
+    }
