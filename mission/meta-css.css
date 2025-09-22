@@ -1,30 +1,45 @@
 body {
-    background-color: #ddd;
     font-size: 20px;
 }
 
 #content {
     max-width: 60%;
     margin: 0 auto;
-    border: 3px solid black;
+    border: 1px solid black;
     padding: 40px;
-    border-radius: 2%;
 }
 
 img {
-    width: 70%;
+    width: 25%;
     display: block;
     margin: 0 auto;
-}
-
-h1 {
-    letter-spacing: 4px;
 }
 
 h1,
 h2,
 p {
     text-align: center;
+    font-size: 15px;
+}
+
+p {
+  text-align: center;
+  width: 80%;
+}
+
+h1 {
+    font-size: 50px;
+    letter-spacing: 4px;
+}
+
+ol{
+        font-size: 15px;
+}
+
+h2 {
+    font-size: 25px;
+    letter-spacing: 4px;
+    color: blue;
 }
 
 .list {
@@ -37,8 +52,7 @@ p {
 }
 
 hr {
-    height: 3px;
-    background-color: #035f9c;
+    height: 1px;
     width: 80%;
     margin: 30px auto;
 
