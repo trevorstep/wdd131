@@ -26,10 +26,13 @@ p {
     text-align: center;
     margin: auto;
     width: 80%;
+    margin: 1em auto; 
+    /* Chat GPT helped me with the margin:1em auto; element because I couldnt remember how to add spacing and I couldnt find it on w3 schools or stack overflow.*/
 }
 
 i {
     font-size: 15px;
+    text-align: left;
 }
 
 h1 {
@@ -43,14 +46,17 @@ ol {
     margin: auto;
     width: 80%;
     font-size: 15px;
+    padding-left: 20px;
 }
-li{
-    text-align: center;
+
+li {
+    text-align: left;
+    margin-bottom: 15px;
 
 }
 
 h2 {
-    font-size: 25px;
+    font-size: 20px;
     letter-spacing: 4px;
     color: blue;
 }
@@ -67,11 +73,10 @@ h2 {
 hr {
     height: 1px;
     width: 80%;
-    margin: 30px auto;
 
 }
 
-    .list-container {
-        width: 80%;
-        margin: auto;
-    }
+.list-container {
+    width: 80%;
+    margin: auto;
+}
