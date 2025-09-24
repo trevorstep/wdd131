@@ -43,3 +43,8 @@ hr {
     margin: 30px auto;
 
 }
+
+.black{
+    background-color: lightblue;
+    color: white;
+}
