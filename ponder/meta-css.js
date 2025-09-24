@@ -34,6 +34,7 @@ let selectElem = document.getElementById('webdevlist');
 document.querySelector('#html').style.color = 'black';
 document.querySelector('#css').style.color = 'black';
 document.querySelector('#js').style.color = 'black';
+
 selectElem.addEventListener('change', function () {
     let codeValue = selectElem.value;
     console.log(codeValue);
@@ -44,4 +45,4 @@ const image = document.querySelector('img');
 image.setAttribute('src', 'images/html-js-css.jpg');
 image.setAttribute('alt', 'new logo with black backround')
 
-document.body.style.backgroundColor = 'black';
+document.body.style.backgroundColor = 'lightblue';
