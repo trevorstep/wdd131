@@ -4,24 +4,21 @@ const modal = document.querySelector('dialog');
 const modalImage = modal.querySelector('img');
 const closeButton = modal.querySelector('.close-viewer');
 
-// Event listener for opening the modal
 gallery.addEventListener('click', openModal);
 
 function openModal(e) {
-    if (img.tagName !== 'IMG') return;
-    console.log(e.target);
-    const img = e.target;
+console.log(e.target);    
+const img =e.target;
 
-    const src = img.getAttribute('src');
-    const alt = img.getAttribute('alt');
-    const full = src.replace('-sm', '-full');
+const src = img.getAttribute('src');
+const alt=img.getAttribute('alt');
+const full= src.replace('sm','full');
 
-    modalImage.src = full;
-    modalImage.alt = alt;
-
-    modal.showModal();
+modalImage.src = full;
+modalImage.alt = alt;
+    
+modal.showModal();
 }
-// Close modal on button click
 closeButton.addEventListener('click', () => {
     modal.close();
 });
@@ -32,3 +29,4 @@ modal.addEventListener('click', (event) => {
         modal.close();
     }
 });
+          

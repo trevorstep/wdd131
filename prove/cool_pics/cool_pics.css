@@ -7,13 +7,22 @@ body {
 
 main {
     max-width: 1000px;
-    margin: 0 auto;  
-    gap: 1rem;  
+    margin: 0 auto;
+    gap: 1rem;
 }
 
 main h2 {
-  grid-column: 1 / -1; 
-  text-align: center;
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 header,
@@ -29,6 +38,8 @@ img {
     object-fit: cover;
 }
 
+
+
 .crop-box {
     width: 300px;
     height: 200px;
@@ -36,12 +47,12 @@ img {
     border: 8px solid white;
 }
 
-.tall-crop-box {
-    width: 300px;
-    height: 300px;
-    overflow: hidden;
-    border: 8px solid white;
-}
+    .tall-crop-box {
+        width: 300px;
+        height: 200px;
+        overflow: hidden;
+        border: 8px solid white;
+    }
 
 h1 {
     text-align: center;
@@ -60,8 +71,8 @@ nav a:hover {
 }
 
 .menu-btn {
-    display: block;            
-    margin: 0 auto;            
+    display: block;
+    margin: 0 auto;
     padding: 0.5rem 1rem;
     font-size: 1.2rem;
     background: none;
@@ -74,6 +85,26 @@ footer {
     text-align: center;
 }
 
+dialog img {
+    width: 90%;
+    display: block;
+    margin: 20vh auto;
+}
+
+dialog {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .75);
+}
+
+.close-viewer {
+    position: absolute;
+    top: 10vh;
+    right: 2vh;
+    padding: 3px 6px;
+    font-size: 1.5em;
+}
+
 
 @media screen and (min-width: 700px) {
     nav {
@@ -81,29 +112,69 @@ footer {
         color: white;
     }
 
+    .tall-crop-box {
+        width: 300px;
+        height: 200px;
+        overflow: hidden;
+        border: 8px solid white;
+    }
+
 
     img {
         height: 100%;
     }
 
-    main {
+    .gallery {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        gap: 1rem;
     }
+
 }
 
 @media screen and (min-width: 1000px) {
-    main {
+    .gallery {
         grid-template-columns: 1fr 1fr 1fr;
     }
-    
-   nav a {
+
+    nav a {
         display: inline;
     }
-    
-     .menu-btn {
+
+    .menu-btn {
         display: none;
     }
 
+    dialog img {
+        width: 60%;
+        margin: 15vh auto;
+    }
 
+    .close-viewer {
+        position: absolute;
+        right: 15vh;
+    }
+
+    .viewer {
+        margin: 50px;
+        padding: 50px;
+    }
+
+    .viewer img {
+        max-width: 800px;
+    }
+
+    .crop-box {
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    border: 8px solid white;
+}
+
+.tall-crop-box {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border: 8px solid white;
+}
 }
