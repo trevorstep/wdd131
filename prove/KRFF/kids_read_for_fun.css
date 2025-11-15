@@ -1,24 +1,31 @@
 body {
     margin: 0;
+    font-family: Georgia, serif;
 }
 
 main {
     max-width: 400px;
     margin: 0 auto;
-    gap: 1rem;
+    padding: 1rem;
 }
 
 h1 {
     text-align: center;
+    font-family: Georgia, serif;
+    font-weight: normal;
+    margin: 1.5rem 0;
 }
 
 h2 {
-    text-align: center;
-    color: red;
+    text-align: left;
+    color: #8B0000;
+    font-size: 1.2rem;
+    margin: 0;
 }
 
 p {
-    text-align: right;
+    margin: 0.5rem 0;
+    line-height: 1.6;
 }
 
 p.centered {
@@ -27,76 +34,108 @@ p.centered {
 
 img {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-
-}
-
-nav a {
-    padding: 20px;
-    text-decoration: none;
-    color: red;
-
-}
-
-nav a:hover {
-    text-decoration: none;
-    border: none;
-    color: black;
+    margin: 1rem auto;
+    max-width: 200px;
+    height: auto;
 }
 
 nav {
     display: flex;
     justify-content: flex-end;
-    gap: 1rem;
-    border-top: 2px orangered solid;
-    border-bottom: 2px orangered solid;
+    gap: 2rem;
+    border-top: 2px solid #D2691E;
+    border-bottom: 2px solid #D2691E;
+    padding: 0.5rem 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #8B0000;
+    font-size: 0.95rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: black;
 }
 
 footer {
     text-align: center;
-    border-top: 2px orangered solid;
-
+    border-top: 2px solid #D2691E;
+    padding: 1rem;
+    margin-top: 2rem;
 }
 
 header {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    align-items: stretch;
+}
+
+.book {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
 }
 
 @media (min-width: 700px) {
     main {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        align-items: start;
-        gap: 1rem;
-        max-width: 1000px;
-    }
-
-    .book-info-left {
-        grid-column: 1;
-        text-align: right;
-        padding-right: 1rem;
-        margin: 1rem;
-        border-right: 2px solid orangered;
-    }
-
-    .book-info-right {
-        grid-column: 2;
-    }
-
-    .book-info-right h2 {
-        text-align: center;
-    }
-
-    .book-info-right img {
-        display: block;
+        max-width: 900px;
         margin: 0 auto;
+        padding: 2rem;
     }
 
-    .book-info-right p.centered {
+
+    /* AI helped me structure my css */
+    .book {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        grid-template-areas:
+            "sidebar title"
+            "sidebar image"
+            "sidebar desc";
+        gap: 0 2rem;
+        padding: 1rem 0;
+        margin-bottom: 3rem;
+    }
+    
+    .book-sidebar {
+        grid-area: sidebar;
+        border-right: 2px solid #D2691E;
+        padding-right: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .date {
+        text-align: right;
+        font-style: italic;
+        color: #333;
+        margin-bottom: 0.5rem;
+    }
+
+    .ages,
+    .genre,
+    .stars {
+        text-align: right;
+        font-size: 0.95rem;
+    }
+
+    .book h2 {
+        grid-area: title;
         text-align: left;
+        margin-bottom: 1rem;
+    }
+
+    .book img {
+        grid-area: image;
+        display: block;
+        margin: 0 auto 1rem auto;
+        max-width: 250px;
+    }
+
+    .description {
+        grid-area: desc;
+        text-align: left;
+        line-height: 1.6;
     }
 }
