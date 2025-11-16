@@ -4,110 +4,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="An in-depthguide to htmle metatags.">
+    <meta name="description" content="Trevor Stephenson's Project Portfolio">
+    <title>Portal Page - WDD131</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: #606c38;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            position: relative;
+            overflow-x: hidden;
         }
 
-        h1 {
-            color: #fefae0;
-            font-size: 50px;
+        body::before {
+            content: '';
+            position: fixed;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            z-index: 0;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveBackground 60s linear infinite;
         }
 
-        h2 {
-            color: #dda15e;
-        }
-
-        p {
-            color: #bc6c25;
-            font-size: 20px;
+        @keyframes moveBackground {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
         }
 
         main {
-            text-align: center;
-            border: 3px solid #283618;
-            border-radius: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
-        a {
-            color: #283618;
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            background: linear-gradient(45deg, #fff, #ffd89b, #fff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            animation: shimmer 3s ease-in-out infinite;
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        h2 {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-card a::after {
+            content: '→';
+            font-size: 1.3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover a::after {
+            transform: translateX(5px);
+        }
+
+        .project-card:hover a {
+            letter-spacing: 0.5px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            animation: fadeIn 1s ease-out 0.6s backwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Particle effect */
+        .particle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 8s infinite;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(50px);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card {
+                padding: 1.5rem;
+            }
         }
     </style>
-
-    <title>Portal Page - WDD131</title>
 </head>
 
 <body>
     <header>
-
-    </header>
-    <main>
         <h1 id="myname">Trevor Stephenson</h1>
         <h2>Probably your favorite student if I had to guess ¯\_(ツ)_/¯</h2>
-        <p>Links:</p>
-        <p>
-            <a href="ponder/meta/meta-css.html">Ponder HTML& CSS</a>
-        </p>
-        <p>
-            <a href="ponder/meta/meta-css.html">Ponder JS Variables & Constants</a>
-        </p>
-        <p>
-            <a href="prove/mission/index.html">BYU-I Mission page</a>
-        </p>
-        <p>
-            <a href="ponder/theme/theme.html">Theme Page </a>
-        </p>
-        <p>
-            <a href="ponder/Responsive/responsive.html">Responsive Design </a>
-        </p>
-        <p>
-            <a href="prove/cool_pics/cool_pics.html">Cool Pics </a>
-        </p>
-        <p>
-            <a href="ponder/modal/modal.html">Modal </a>
-        </p>
-        <p>
-            <a href="ponder/movies/movies.html">Movies</a>
-        </p>
+        <p class="subtitle">Welcome to my project portfolio</p>
+    </header>
 
-        <p>
-            <a href="Interview_practice/practice.html">Interview_practice </a>
-        </p>
-
-        <p>
-            <a href="prove/KRFF/kids_read_for_fun.html">Kids read for fun! Website</a>
-        </p>
-
-        <p>
-            <a href="ponder/array_practice/array_practice.html">Array Practice </a>
-        </p>
-
-        <p>
-            <a href="ponder/forms/forms.html">Forms Practice </a>
-        </p>
-
-        <p>
-            <a href="prove/creditcard/index.html">Credit card </a>
-        </p>
-
-        <p>
-            <a href="ponder/objects/objects.html"> Objects JS lesson </a>
-        </p>
-
-        <p>
-            <a href="prove/character_cards/character.html"> Character_cards (Objects) </a>
-        </p>
-
-        
-        <p>
-            <a href="ponder/flexbox/flexbox.html"> Flexbox </a>
-        </p>
-
+    <main>
+        <div class="projects-grid">
+            <div class="project-card">
+                <a href="ponder/meta/meta-css.html">Ponder HTML & CSS</a>
+            </div>
+            <div class="project-card">
+                <a href="ponder/meta/meta-css.html">JS Variables & Constants</a>
+            </div>
+            <div class="project-card">
+                <a href="prove/mission/index.html">BYU-I Mission Page</a>
+            </div>
+            <div class="project-card">
+                <a href="ponder/theme/theme.html">Theme Page</a>
+            </div>
+            <div class="project-card">
+                <a href="ponder/Responsive/responsive.html">Responsive Design</a>
+            </div>
+            <div class="project-card">
+                <a href="prove/cool_pics/cool_pics.html">Cool Pics</a>
+            </div>
+            <div class="project-card">
+                <a href="ponder/modal/modal.html">Modal</a>
+            </div>
+            <div class="project-card">
+                <a href="ponder/movies/movies.html">Movies</a>
+            </div>
+            <div class="project-card">
+                <a href="Interview_practice/practice.html">Interview Practice</a>
+            </div>
+            <div class="project-card">
+                <a href="prove/KRFF/kids_read_for_fun.html">Kids Read For Fun!</a>
+            </div>
+            <div class="project-card">
+                <a href="ponder/array_practice/array_practice.html">Array Practice</a>
+            </div>
+            <div class="project-card">
+                <a href="ponder/forms/forms.html">Forms Practice</a>
+            </div>
+            <div class="project-card">
+                <a href="prove/creditcard/index.html">Credit Card</a>
+            </div>
+            <div class="project-card">
+                <a href="ponder/objects/objects.html">Objects JS Lesson</a>
+            </div>
+            <div class="project-card">
+                <a href="prove/character_cards/character.html">Character Cards</a>
+            </div>
+            <div class="project-card">
+                <a href="ponder/flexbox/flexbox.html">Flexbox</a>
+            </div>
+            <div class="project-card">
+                <a href="prove/Recipe/recipe.html">Recipe Page</a>
+            </div>
+        </div>
     </main>
-    <footer>
 
+    <footer>
+        <p>© 2024 Trevor Stephenson | WDD131 Portfolio</p>
     </footer>
+
+    <script>
+        // Create floating particles
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 8 + 's';
+            particle.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            document.body.appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 10000);
+        }
+
+        // Generate particles
+        setInterval(createParticle, 300);
+    </script>
 </body>
 
 </html>
