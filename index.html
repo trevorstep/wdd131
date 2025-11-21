@@ -138,6 +138,29 @@
             overflow: hidden;
         }
 
+        .project-number {
+            position: absolute;
+            top: 0.75rem;
+            left: 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.1);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover .project-number {
+            background: rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.8);
+            transform: scale(1.1);
+        }
+
         .project-card::before {
             content: '';
             position: absolute;
@@ -252,6 +275,143 @@
                 padding: 1.5rem;
             }
         }
+
+        /* Final Project Card Styling */
+        .final-project-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+            animation: fadeInUp 1s ease-out 0.6s backwards;
+        }
+
+        .final-project-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            padding: 3rem 4rem;
+            position: relative;
+            overflow: hidden;
+            max-width: 500px;
+            width: 100%;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .final-project-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) rotate(45deg);
+            }
+            100% {
+                transform: translateX(100%) rotate(45deg);
+            }
+        }
+
+        .final-project-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 25px;
+            padding: 2px;
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #667eea);
+            background-size: 300% 300%;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: gradientRotate 4s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes gradientRotate {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .final-project-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+        }
+
+        .final-project-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: linear-gradient(135deg, #ffd89b, #19547b);
+            color: #fff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .final-project-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .final-project-title {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #fff, #ffd89b, #fff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .final-project-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .final-project-card {
+                padding: 2rem;
+            }
+
+            .final-project-title {
+                font-size: 1.5rem;
+            }
+        }
     </style>
 </head>
 
@@ -265,64 +425,94 @@
     <main>
         <div class="projects-grid">
             <div class="project-card">
+                <span class="project-number">1</span>
                 <a href="ponder/meta/meta-css.html">Ponder HTML & CSS</a>
             </div>
             <div class="project-card">
+                <span class="project-number">2</span>
                 <a href="ponder/meta/meta-css.html">JS Variables & Constants</a>
             </div>
             <div class="project-card">
+                <span class="project-number">3</span>
                 <a href="prove/mission/index.html">BYU-I Mission Page</a>
             </div>
             <div class="project-card">
+                <span class="project-number">4</span>
                 <a href="ponder/theme/theme.html">Theme Page</a>
             </div>
             <div class="project-card">
+                <span class="project-number">5</span>
                 <a href="ponder/Responsive/responsive.html">Responsive Design</a>
             </div>
             <div class="project-card">
+                <span class="project-number">6</span>
                 <a href="prove/cool_pics/cool_pics.html">Cool Pics</a>
             </div>
             <div class="project-card">
+                <span class="project-number">7</span>
                 <a href="ponder/modal/modal.html">Modal</a>
             </div>
             <div class="project-card">
+                <span class="project-number">8</span>
                 <a href="ponder/movies/movies.html">Movies</a>
             </div>
             <div class="project-card">
+                <span class="project-number">9</span>
                 <a href="Interview_practice/practice.html">Interview Practice</a>
             </div>
             <div class="project-card">
+                <span class="project-number">10</span>
                 <a href="prove/KRFF/kids_read_for_fun.html">Kids Read For Fun!</a>
             </div>
             <div class="project-card">
+                <span class="project-number">11</span>
                 <a href="ponder/array_practice/array_practice.html">Array Practice</a>
             </div>
             <div class="project-card">
+                <span class="project-number">12</span>
                 <a href="ponder/forms/forms.html">Forms Practice</a>
             </div>
             <div class="project-card">
+                <span class="project-number">13</span>
                 <a href="prove/creditcard/index.html">Credit Card</a>
             </div>
             <div class="project-card">
+                <span class="project-number">14</span>
                 <a href="ponder/objects/objects.html">Objects JS Lesson</a>
             </div>
             <div class="project-card">
+                <span class="project-number">15</span>
                 <a href="prove/character_cards/character.html">Character Cards</a>
             </div>
             <div class="project-card">
+                <span class="project-number">16</span>
                 <a href="ponder/flexbox/flexbox.html">Flexbox</a>
             </div>
             <div class="project-card">
+                <span class="project-number">17</span>
                 <a href="prove/Recipe/recipe.html">Recipe Page</a>
             </div>
             <div class="project-card">
+                <span class="project-number">18</span>
                 <a href="ponder/FilteringandSorting/sortfilter.html">Filtering and Sorting</a>
             </div>
             <div class="project-card">
+                <span class="project-number">19</span>
                 <a href="ponder/hikes/hikes.html">Hikes -Practice</a>
             </div>
             <div class="project-card">
+                <span class="project-number">20</span>
                 <a href="prove/Recipe/recipe.html">Recipe Prove</a>
+            </div>
+        </div>
+
+        <div class="final-project-container">
+            <div class="final-project-card">
+                <div class="final-project-badge">Coming Soon</div>
+                <div class="final-project-content">
+                    <div class="final-project-title">Final Project</div>
+                    <div class="final-project-subtitle">The grand finale awaits...</div>
+                </div>
             </div>
         </div>
     </main>
