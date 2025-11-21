@@ -31,12 +31,12 @@ h1 {
     height: auto;
 }
 
-#apple-crisp {
+#recipe-img {
     width: 300px;
     height: auto;
 }
 
-#searchimg {
+#searching {
     width: 20px;
     height: auto;
     border-left: 2px solid black;
@@ -99,7 +99,7 @@ h2 {
 
 @media (min-width: 700px) {
     .description {
-        display: contents;
+        display: block;
     }
 
     body {
@@ -128,12 +128,12 @@ h2 {
         height: auto;
     }
 
-    #apple-crisp {
-        width: 500px;
+    .recipe-img {
+        width: 400px;
         height: auto;
     }
 
-    #searchimg {
+    #searching {
         width: 30px;
         height: auto;
         border-left: 2px solid black;

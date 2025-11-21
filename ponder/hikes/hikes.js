@@ -83,27 +83,30 @@ button.addEventListener('click', search);
 function search() {
   let hikeQuery = document.querySelector('#search').value.toLowerCase();
 
-
-  let filterHikes = hikes.filter(function (hikes) {
-    return hikes.name.toLowerCase().includes(hikeQuery.toLowerCase) ||
-      hikes.description.toLowerCase().includes(hikeQuery.toLowerCase) ||
-      hikes.tags.find(tag => tag.toLowerCase()).includes(hikeQuery.toLowerCase);
+  let filterHikes = hikes.filter(function (hike) {
+    return hike.name.toLowerCase().includes(hikeQuery) ||
+      hike.description.toLowerCase().includes(hikeQuery) ||
+      hike.tags.find(tag => tag.toLowerCase().includes(hikeQuery));
   })
 
   function compareHikes(hikeA, hikeB) {
-      if(hikeA.difficulty < hikeB.difficulty) {
-          return -1;
-      } else if (hikeA.difficulty > hikeB.difficulty) {
-          return 1;
-      } 
-      return 0;
-    }
-      let sortedHikes = filterHikes.sort(compareHikes);
+    if(hikeA.difficulty < hikeB.difficulty) {
+      return -1;
+    } else if (hikeA.difficulty > hikeB.difficulty) {
+      return 1;
+    } 
+    return 0;
+  }
+  
+  let sortedHikes = filterHikes.sort(compareHikes);
 
-      sortedHikes.forEach(hike => {
-          renderHike(hike);
-      });
-};
+  // Clear previous results
+  hikeContainer.innerHTML = '';
+
+  sortedHikes.forEach(hike => {
+    renderHike(hike);
+  });
+}
 
 
 function tagTemplate(tags) {
