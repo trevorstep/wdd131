@@ -39,7 +39,6 @@
             0% {
                 transform: translate(0, 0);
             }
-
             100% {
                 transform: translate(50px, 50px);
             }
@@ -63,7 +62,6 @@
                 opacity: 0;
                 transform: translateY(-30px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -84,12 +82,9 @@
         }
 
         @keyframes shimmer {
-
-            0%,
-            100% {
+            0%, 100% {
                 background-position: 0% 50%;
             }
-
             50% {
                 background-position: 100% 50%;
             }
@@ -100,12 +95,6 @@
             font-size: clamp(1rem, 3vw, 1.5rem);
             font-weight: 400;
             margin-bottom: 1rem;
-        }
-
-        .subtitle {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
         }
 
         .projects-grid {
@@ -120,7 +109,6 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -222,13 +210,11 @@
             from {
                 opacity: 0;
             }
-
             to {
                 opacity: 1;
             }
         }
 
-        /* Particle effect */
         .particle {
             position: fixed;
             width: 4px;
@@ -241,42 +227,22 @@
         }
 
         @keyframes float {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translateY(0) translateX(0);
                 opacity: 0;
             }
-
             10% {
                 opacity: 1;
             }
-
             90% {
                 opacity: 1;
             }
-
             100% {
                 transform: translateY(-100vh) translateX(50px);
                 opacity: 0;
             }
         }
 
-        @media (max-width: 768px) {
-            body {
-                padding: 1rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .project-card {
-                padding: 1.5rem;
-            }
-        }
-
-        /* Final Project Card Styling */
         .final-project-container {
             display: flex;
             justify-content: center;
@@ -295,6 +261,9 @@
             max-width: 500px;
             width: 100%;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
         }
 
         .final-project-card::before {
@@ -313,7 +282,6 @@
             0% {
                 transform: translateX(-100%) rotate(45deg);
             }
-
             100% {
                 transform: translateX(100%) rotate(45deg);
             }
@@ -342,11 +310,9 @@
             0% {
                 background-position: 0% 50%;
             }
-
             50% {
                 background-position: 100% 50%;
             }
-
             100% {
                 background-position: 0% 50%;
             }
@@ -355,34 +321,6 @@
         .final-project-card:hover {
             transform: translateY(-15px) scale(1.05);
             box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
-        }
-
-        .final-project-badge {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            background: linear-gradient(135deg, #ffd89b, #19547b);
-            color: #fff;
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.05);
-            }
         }
 
         .final-project-content {
@@ -399,7 +337,7 @@
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
             animation: shimmer 3s ease-in-out infinite;
         }
 
@@ -410,6 +348,18 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card {
+                padding: 1.5rem;
+            }
+
             .final-project-card {
                 padding: 2rem;
             }
@@ -423,9 +373,8 @@
 
 <body>
     <header>
-        <h1 id="myname">Trevor Stephenson</h1>
-        <h2>Probably your favorite student if I had to guess ¯\_(ツ)_/¯</h2>
-        <p class="subtitle">Welcome to my project portfolio</p>
+        <h1>Trevor Stephenson</h1>
+        <h2>Welcome to my project portfolio</h2>
     </header>
 
     <main>
@@ -513,13 +462,12 @@
         </div>
 
         <div class="final-project-container">
-            <div class="final-project-card">
-                <div class="final-project-badge">Coming Soon</div>
+            <a href="https://national-parks-app.onrender.com/main.html" class="final-project-card">
                 <div class="final-project-content">
                     <div class="final-project-title">Final Project</div>
-                    <div class="final-project-subtitle">The grand finale awaits...</div>
+                    <div class="final-project-subtitle">National Parks</div>
                 </div>
-            </div>
+            </a>
         </div>
     </main>
 
@@ -528,7 +476,6 @@
     </footer>
 
     <script>
-        // Create floating particles
         function createParticle() {
             const particle = document.createElement('div');
             particle.className = 'particle';
@@ -542,7 +489,6 @@
             }, 10000);
         }
 
-        // Generate particles
         setInterval(createParticle, 300);
     </script>
 </body>
